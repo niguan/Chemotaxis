@@ -1,6 +1,8 @@
  //declare bacteria variables here   
  Bacteria bob;
  Bacteria [] colony;
+ Predator john;
+ Predator [] colony;
  void setup()
  {     
  	//initialize bacteria variables here   
@@ -12,6 +14,12 @@
  	{
  		colony[i] = new Bacteria();
  	}
+ 	john = new Predator();
+ 	colony = new Predator [5];
+ 	for (int j=0; int j<colony.length; j++)
+ 	{
+ 		colony[j] = new Predator();
+ 	}
  }   
  void draw()
  {    
@@ -22,7 +30,11 @@
  		colony[i].walk();
  		colony[i].show();
  	}
- }  
+	for (int i=0; i<colony.length; i++)
+ 	{
+ 		colony[i].walk();
+ 		colony[i].show();
+ 	} }  
  class Bacteria    
  {     
  	//lots of java!
@@ -35,12 +47,28 @@
  	}
  	void walk()
  	{
- 		// if (myX > 450 || myY > 450)
- 		// {
- 		// 	myX = myX -
- 		// }
- 		myX = myX + (int)(Math.random()* 7) - 3;
- 		myY = myY + (int)(Math.random()* 7) - 3;
+ 		if (myX > 450)
+ 		{
+ 			myX = myX - (int)(Math.random()* 11);
+ 		}
+ 		if (myX < 0)
+ 		 {
+ 			myX = myX + (int)(Math.random()* 11);
+ 		}	
+ 		if (myY > 450)
+ 		{
+ 			myY = myY - (int)(Math.random()* 11);
+ 		}
+ 		if (myY < 0)
+ 		{
+ 			myY = myY + (int)(Math.random()* 11);
+ 		}
+
+ 		else
+ 		{
+ 			myX = myX + (int)(Math.random()* 23) - 11;
+ 			myY = myY + (int)(Math.random()* 23) - 11;
+ 		}
  	}
  	void show()
  	{
