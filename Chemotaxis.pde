@@ -2,7 +2,7 @@
  Bacteria bob;
  Bacteria [] colony;
  Predator john;
- Predator [] colony;
+ Predator [] pack;
  void setup()
  {     
  	//initialize bacteria variables here   
@@ -15,10 +15,10 @@
  		colony[i] = new Bacteria();
  	}
  	john = new Predator();
- 	colony = new Predator [5];
- 	for (int j=0; int j<colony.length; j++)
+ 	pack = new Predator [5];
+ 	for (int j=0; j<pack.length; j++)
  	{
- 		colony[j] = new Predator();
+ 		pack[j] = new Predator();
  	}
  }   
  void draw()
@@ -30,10 +30,10 @@
  		colony[i].walk();
  		colony[i].show();
  	}
-	for (int i=0; i<colony.length; i++)
+	for (int j=0; j<pack.length; j++)
  	{
- 		colony[i].walk();
- 		colony[i].show();
+ 		pack[j].walk();
+ 		pack[j].show();
  	} }  
  class Bacteria    
  {     
@@ -70,9 +70,50 @@
  			myY = myY + (int)(Math.random()* 23) - 11;
  		}
  	}
+
  	void show()
  	{
  		fill(myColor);
  		ellipse(myX,myY,20,20);
  	} 
+ class Predator
+ {     
+ 	//lots of java!
+ 	int pX, pY;
+ 	int pColor = color(Math.random()*256,Math.random()*256,Math.random()*256);
+	Predator()
+ 	{
+ 		pX = 0;
+ 		pY = 0;
+ 	}
+ 	void walk()
+ 	{
+ 		if (pX > 450)
+ 		{
+ 			pX = pX - (int)(Math.random()* 11);
+ 		}
+ 		if (pX < 0)
+ 		 {
+ 			pX = pX + (int)(Math.random()* 11);
+ 		}	
+ 		if (pY > 450)
+ 		{
+ 			pY = pY - (int)(Math.random()* 11);
+ 		}
+ 		if (pY < 0)
+ 		{
+ 			pY = pY + (int)(Math.random()* 11);
+ 		}
+ 		else
+ 		{
+ 			pX = pX + (int)(Math.random()* 23) - 11;
+ 			pY = pY + (int)(Math.random()* 23) - 11;
+ 		}
+ 	}
+ 	void show()
+ 	{
+ 		fill(0,200,255);
+ 		ellipse(pX,pY,20,20);
+ 	}
+ } 
 }
