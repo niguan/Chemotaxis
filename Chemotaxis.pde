@@ -34,7 +34,8 @@
  	{
  		pack[j].walk();
  		pack[j].show();
- 	} }  
+ 	} 
+ }  
  class Bacteria    
  {     
  	//lots of java!
@@ -70,17 +71,17 @@
  			myY = myY + (int)(Math.random()* 23) - 11;
  		}
  	}
-
  	void show()
  	{
  		fill(myColor);
  		ellipse(myX,myY,20,20);
- 	} 
+ 	}
+  } 
  class Predator
  {     
  	//lots of java!
  	int pX, pY;
- 	int pColor = color(Math.random()*256,Math.random()*256,Math.random()*256);
+ 	int pColor = color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
 	Predator()
  	{
  		pX = 0;
@@ -115,5 +116,4 @@
  		fill(0,200,255);
  		ellipse(pX,pY,20,20);
  	}
- } 
-}
+  } 
