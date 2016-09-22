@@ -6,16 +6,16 @@
  void setup()
  {     
  	//initialize bacteria variables here   
- 	size(500,500);
- 	frameRate(20);
+ 	size(700,500);
+ 	frameRate(25);
  	bob = new Bacteria();
- 	colony = new Bacteria [10];
+ 	colony = new Bacteria [250];
  	for (int i=0; i<colony.length; i++)
  	{
  		colony[i] = new Bacteria();
  	}
  	john = new Predator();
- 	pack = new Predator [5];
+ 	pack = new Predator [250];
  	for (int j=0; j<pack.length; j++)
  	{
  		pack[j] = new Predator();
@@ -24,7 +24,7 @@
  void draw()
  {    
   	//move and show the bacteria   
- 	background(200,0,0);
+ 	background(0);
  	for (int i=0; i<colony.length; i++)
  	{
  		colony[i].walk();
@@ -42,78 +42,78 @@
  	int myX, myY, myColor;
  	Bacteria()
  	{
- 		myX = 250;
+ 		myX = 400;
  		myY = 250;
- 		myColor = (int)(Math.random()*256);
+ 		myColor = color(255,200,0);
  	}
  	void walk()
  	{
- 		if (myX > 450)
+ 		if (myX > 350)
  		{
- 			myX = myX - (int)(Math.random()* 11);
+ 			myX = myX - (int)(Math.random()* 5);
  		}
  		if (myX < 0)
  		 {
- 			myX = myX + (int)(Math.random()* 11);
+ 			myX = myX + (int)(Math.random()* 5);
  		}	
- 		if (myY > 450)
+ 		if (myY > 250)
  		{
- 			myY = myY - (int)(Math.random()* 11);
+ 			myY = myY - (int)(Math.random()* 5);
  		}
  		if (myY < 0)
  		{
- 			myY = myY + (int)(Math.random()* 11);
+ 			myY = myY + (int)(Math.random()* 5);
  		}
 
  		else
  		{
- 			myX = myX + (int)(Math.random()* 23) - 11;
- 			myY = myY + (int)(Math.random()* 23) - 11;
+ 			myX = myX + (int)(Math.random()* 11) - 5;
+ 			myY = myY + (int)(Math.random()* 11) - 5;
  		}
  	}
  	void show()
  	{
  		fill(myColor);
- 		ellipse(myX,myY,20,20);
+ 		ellipse(myX,myY,10,10);
  	}
   } 
  class Predator
  {     
  	//lots of java!
- 	int pX, pY;
- 	int pColor = color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
+ 	int pX, pY, pColor;
 	Predator()
  	{
  		pX = 0;
  		pY = 0;
+ 		pColor = color(0,200,255);
  	}
  	void walk()
  	{
- 		if (pX > 450)
+ 		if (pX > 350)
  		{
- 			pX = pX - (int)(Math.random()* 11);
+ 			pX = pX - (int)(Math.random()* 5);
  		}
  		if (pX < 0)
  		 {
- 			pX = pX + (int)(Math.random()* 11);
+ 			pX = pX + (int)(Math.random()* 5);
  		}	
- 		if (pY > 450)
+ 		if (pY > 250)
  		{
- 			pY = pY - (int)(Math.random()* 11);
+ 			pY = pY - (int)(Math.random()* 5);
  		}
  		if (pY < 0)
  		{
- 			pY = pY + (int)(Math.random()* 11);
+ 			pY = pY + (int)(Math.random()* 5);
  		}
  		else
  		{
- 			pX = pX + (int)(Math.random()* 23) - 11;
- 			pY = pY + (int)(Math.random()* 23) - 11;
+ 			pX = pX + (int)(Math.random()* 11) - 5;
+ 			pY = pY + (int)(Math.random()* 11) - 5;
  		}
  	}
  	void show()
  	{
- 		fill(0,200,255);
- 		ellipse(pX,pY,20,20);
+ 		fill(pColor);
+ 		ellipse(pX+200,pY+ 250,10,10);
  	}
-  } 
+  }
