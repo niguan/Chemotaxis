@@ -6,7 +6,7 @@
  void setup()
  {     
  	//initialize bacteria variables here   
- 	size(700,500);
+ 	size(550,500);
  	frameRate(25);
  	bob = new Bacteria();
  	colony = new Bacteria [250];
@@ -29,6 +29,7 @@
  	{
  		colony[i].walk();
  		colony[i].show();
+
  	}
 	for (int j=0; j<pack.length; j++)
  	{
@@ -36,6 +37,21 @@
  		pack[j].show();
  	} 
  }  
+ void mousePressed()
+ {
+ 	bob = new Bacteria();
+ 	colony = new Bacteria [250];
+ 	for (int i=0; i<colony.length; i++)
+ 	{
+ 		colony[i] = new Bacteria();
+ 	}
+ 	john = new Predator();
+ 	pack = new Predator [250];
+ 	for (int j=0; j<pack.length; j++)
+ 	{
+ 		pack[j] = new Predator();
+ 	}
+ }
  class Bacteria    
  {     
  	//lots of java!
@@ -48,7 +64,7 @@
  	}
  	void walk()
  	{
- 		if (myX > 350)
+ 		if (myX > 550)
  		{
  			myX = myX - (int)(Math.random()* 5);
  		}
@@ -56,7 +72,7 @@
  		 {
  			myX = myX + (int)(Math.random()* 5);
  		}	
- 		if (myY > 250)
+ 		if (myY > 500)
  		{
  			myY = myY - (int)(Math.random()* 5);
  		}
@@ -89,7 +105,7 @@
  	}
  	void walk()
  	{
- 		if (pX > 350)
+ 		if (pX > 550)
  		{
  			pX = pX - (int)(Math.random()* 5);
  		}
@@ -97,7 +113,7 @@
  		 {
  			pX = pX + (int)(Math.random()* 5);
  		}	
- 		if (pY > 250)
+ 		if (pY > 500)
  		{
  			pY = pY - (int)(Math.random()* 5);
  		}
@@ -114,6 +130,6 @@
  	void show()
  	{
  		fill(pColor);
- 		ellipse(pX+200,pY+ 250,10,10);
+ 		ellipse(pX+200,pY+250,10,10);
  	}
   }
