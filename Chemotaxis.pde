@@ -58,8 +58,8 @@
  	int myX, myY, myColor;
  	Bacteria()
  	{
- 		myX = 400;
- 		myY = 250;
+ 		myX = 450;
+ 		myY = 400;
  		myColor = color(255,200,0);
  	}
  	void walk()
@@ -83,8 +83,8 @@
 
  		else
  		{
- 			myX = myX + (int)(Math.random()* 11) - 5;
- 			myY = myY + (int)(Math.random()* 11) - 5;
+ 			myX = myX + (int)(Math.random()* 17) - 8;
+ 			myY = myY + (int)(Math.random()* 17) - 8;
  		}
  	}
  	void show()
@@ -99,8 +99,8 @@
  	int pX, pY, pColor;
 	Predator()
  	{
- 		pX = 0;
- 		pY = 0;
+ 		pX = 100;
+ 		pY = 100;
  		pColor = color(0,200,255);
  	}
  	void walk()
@@ -123,13 +123,13 @@
  		}
  		else
  		{
- 			pX = pX + (int)(Math.random()* 11) - 5;
- 			pY = pY + (int)(Math.random()* 11) - 5;
+ 			pX = pX + (int)(Math.random()* 17) - 8;
+ 			pY = pY + (int)(Math.random()* 17) - 8;
  		}
  	}
  	void show()
  	{
  		fill(pColor);
- 		ellipse(pX+200,pY+250,10,10);
+ 		ellipse(pX,pY,10,10);
  	}
   }
